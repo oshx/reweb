@@ -1,16 +1,14 @@
 {
   "name": "reweb",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Koa server",
   "main": "index.js",
   "scripts": {
-    "watch": "NODE_ENV=development nodemon --watch 'server/**/*' -e ts,tsx --exec ts-node ./server/app.ts --verbose --debug",
-    "koa": "NODE_ENV=production nodemon ./server/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "NODE_ENV=development nodemon --watch 'server/**/*' -e ts,tsx --exec ts-node ./server/app.ts --verbose --debug"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["koa"],
+  "author": "오승환 <oshxios@gmail.com>",
+  "license": "UNLICENSED",
   "dependencies": {
     "koa": "^2.7.0",
     "koa-router": "^7.4.0"
