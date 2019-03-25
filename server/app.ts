@@ -7,6 +7,7 @@ import * as session from "koa-session";
 import * as redisStore from "koa-redis";
 import * as bodyParser from "koa-bodyparser";
 import { SessionStore } from "koa-generic-session";
+import * as jwtStrategy from "passport-jwt";
 
 dotenv.config();
 
@@ -27,6 +28,13 @@ const storeOption: redisStore.RedisOptions = {
   port: Number(process.env.REDIS_PORT),
 };
 const store: SessionStore = redisStore(storeOption);
+
+passport.use(new jwtStrategy.Strategy({
+  jwtFromRequest: jwtStrategy.ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: 'the_secret',
+}, (payload, done) => {
+  return done(null, payload, {});
+}));
 
 passport.serializeUser((user, done) => {
   console.info("serializeUser,", user);

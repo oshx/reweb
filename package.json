@@ -32,6 +32,7 @@
     "@types/koa-passport": "^4.0.2",
     "@types/koa-redis": "^3.0.2",
     "@types/koa-router": "^7.0.40",
+    "@types/passport-jwt": "^3.0.1",
     "@types/redis": "^2.8.11",
     "core-js": "^2.6.5",
     "dotenv": "^7.0.0",
