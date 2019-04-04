@@ -1,13 +1,13 @@
 import "@babel/polyfill";
-import * as Koa from "koa";
-import * as Router from "koa-router";
-import * as dotenv from "dotenv";
-import * as passport from "koa-passport";
-import * as session from "koa-session";
-import * as redisStore from "koa-redis";
-import * as bodyParser from "koa-bodyparser";
+import Koa from "koa";
+import Router from "koa-router";
+import dotenv from "dotenv";
+import passport from "koa-passport";
+import session from "koa-session";
+import redisStore from "koa-redis";
+import bodyParser from "koa-bodyparser";
 import { SessionStore } from "koa-generic-session";
-import * as jwtStrategy from "passport-jwt";
+import jwtStrategy from "passport-jwt";
 
 dotenv.config();
 
@@ -17,8 +17,8 @@ const router: Router = new Router();
 console.info(".env [TEST_VAR]=", process.env.TEST_VAR);
 console.info(".env [SERVER_PORT]=", process.env.SERVER_PORT);
 
-const globalRequestHandler: Koa.Middleware = async (ctx: Koa.Context,
-  next: () => Promise<any>): Promise<void> => {
+const globalRequestHandler: Koa.Middleware = (ctx,
+  next: () => Promise<any>): void => {
   console.info("requested, ", ctx.request.URL.pathname, "[route for SPA]");
   ctx.body = `Node.js server is running on ${process.env.SERVER_PORT}`;
 };
